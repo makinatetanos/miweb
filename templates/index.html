@@ -27,16 +27,16 @@
     <hr>
 
 <section id="posts">
-  {% for post in posts %}
-    <article>
-      <div>{{ post.contenido_html | safe }}</div>
-      <hr>
-      <a href="https://donate.stripe.com/aFa4gr8a43LReAx0p7bbG03" style="display:inline-block;padding:0.5em 1.5em;background:#0f0;color:#111;font-weight:bold;border:none;border-radius:4px;text-decoration:none;font-size:1.1em;">
-        💚 Donar
-      </a>
-    </article>
-  {% endfor %}
-</section>
+    {% for post in posts %}
+        <article>
+            <div>{{ post.contenido_html | safe }}</div>
+            <hr>
+            <a href="https://donate.stripe.com/aFa4gr8a43LReAx0p7bbG03"
+               style="display:inline-block;padding:0.5em 1.5em;background:#0f0;color:#111;font-weight:bold;border:none;border-radius:4px;text-decoration:none;font-size:1.1em;">
+                💚 Donar
+            </a>
+        </article>
+    {% endfor %}
 </section>
 
     <footer>
