@@ -8,5 +8,3 @@ os compartiré difenetes publicaciones relacionadas con temas de Ciber Activismo
 Espero os guste, y en el caso de querer apoyarme podais hacerlo invitandome a un café 😊☕
 
 ---
-
-[💚 Donar](https://donate.stripe.com/aFa4gr8a43LReAx0p7bbG03)
