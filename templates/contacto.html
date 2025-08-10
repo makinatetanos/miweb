@@ -10,11 +10,22 @@
     <meta name="author" content="Abel Pll">
 </head>
 <body>
-  <h1>Contacto</h1>
-  <p>Puedes contactarme a través de mis redes sociales:</p>
-  <div class="redes-sociales">
-    <h2>Redes Sociales</h2>
-    <ul>
+    <header>
+        <h1>Abel Pll</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Contacto</h1>
+        <p>Puedes contactarme a través de mis redes sociales:</p>
+        <div class="redes-sociales">
+            <h2>Redes Sociales</h2>
+            <ul>
       <li>
         <a rel="me" href="https://mastodon.social/@abelpll19" target="_blank" class="red-social-link" title="Perfil de Abel Pll en Mastodon">
           Mastodon

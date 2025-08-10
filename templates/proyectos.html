@@ -10,11 +10,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Proyectos</h1>
-    <p>Aquí puedes ver los proyectos que he realizado</p>
-    <ul class="lista-proyectos">
-        <li>
-            <a href="https://github.com/makinatetanos/Generador-de-sitios-estaticos" target="_blank" rel="noopener noreferrer">Generador-de-Sitios-Estaticos</a>
+    <header>
+        <h1>Abel Pll</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Proyectos</h1>
+        <p>Aquí puedes ver los proyectos que he realizado</p>
+        <ul class="lista-proyectos">
+            <li>
+                <a href="https://github.com/makinatetanos/Generador-de-sitios-estaticos" target="_blank" rel="noopener noreferrer">Generador-de-Sitios-Estaticos</a>
         </li>
         <li>
             <a href="https://github.com/makinatetanos/ia-codex-api" target="_blank" rel="noopener noreferrer">IA-codex-api</a>
