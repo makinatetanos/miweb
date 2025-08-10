@@ -46,12 +46,16 @@ def build_pages(env: Environment) -> None:
         # Fallback
         return "#"
 
-    context = {"url_for": url_for}
+    posts = get_posts()
+    context = {"url_for": url_for, "posts": posts}
 
     # Render páginas principales
     for template_name in ["index.html", "proyectos.html", "contacto.html"]:
         template = env.get_template(template_name)
-        html = template.render(**context)
+        if template_name == "index.html":
+            html = template.render(**context)
+        else:
+            html = template.render(url_for=url_for)
         (OUTPUT_DIR / template_name).write_text(html, encoding="utf-8")
 
 
@@ -95,6 +99,16 @@ def build_posts() -> None:
 </html>
 """
         (posts_out / f"{nombre}.html").write_text(page_html, encoding="utf-8")
+
+
+def get_posts():
+    posts = []
+    for md_file in sorted(MARKDOWN_DIR.glob("*.md")):
+        nombre = md_file.stem
+        contenido_md = md_file.read_text(encoding="utf-8")
+        contenido_html = md.markdown(contenido_md)
+        posts.append({"nombre": nombre, "contenido_html": contenido_html})
+    return posts
 
 
 def main() -> None:

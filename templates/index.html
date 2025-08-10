@@ -23,10 +23,18 @@
     <main>
         <p>Bienvenido a mi rincón en la web. Soy un desarrollador explorando el mundo de la tecnología.</p>
     </main>
-    <section>
-        <h1>Bienvenido a mi blog</h1>
-        <iframe src="{{ url_for('mostrar_post', nombre='post1') }}" class="post-frame"></iframe>
-    </section>
+    <h1>Bienvenido a mi web</h1>
+
+<section id="posts">
+  <h2>Publicaciones recientes</h2>
+  {% for post in posts %}
+    <article>
+      <h3>{{ post.nombre }}</h3>
+      <div>{{ post.contenido_html | safe }}</div>
+      <hr>
+    </article>
+  {% endfor %}
+</section>
 
     <footer>
         <p>&copy; 2024 Abel Pll</p>
