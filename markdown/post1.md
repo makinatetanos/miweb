@@ -9,4 +9,4 @@ Espero os guste, y en el caso de querer apoyarme podais hacerlo invitandome a un
 
 ---
 
-[💚 Donar]([text](https://donate.stripe.com/aFa4gr8a43LReAx0p7bbG03))
+[💚 Donar](https://donate.stripe.com/aFa4gr8a43LReAx0p7bbG03)
