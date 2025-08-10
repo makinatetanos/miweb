@@ -3,44 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abel Pll | Desarrollador, Ciber Activismo y Crítica Social</title>
+    <meta name="description" content="Blog personal de Abel Pll sobre desarrollo, ciber activismo, crítica social y experiencias en tecnología.">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Abel Pll</title>
+    <meta name="robots" content="index,follow">
 </head>
 <body>
-    <main>
     <header>
-        <h1>Abel Pll</h1>
         <nav>
             <ul>
-            <li>
-                <a href="{{ url_for('proyectos') }}">Proyectos</a>
-            </li>
-            <li>
-                <a href="{{ url_for('contacto') }}">Contacto</a>
-            </li>
+                <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+                <li><a href="{{ url_for('proyectos') }}">Proyectos</a></li>
+                <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+            </ul>
         </nav>
+        <h1>Abel Pll</h1>
     </header>
     <main>
-        <p>Bienvenido a mi rincón en la web. Soy un desarrollador explorando el mundo de la tecnología.</p>
+        <section id="bienvenida">
+            <h2>Bienvenido a mi rincón en la web</h2>
+            <p>Soy un desarrollador explorando el mundo de la tecnología, ciber activismo y crítica social.</p>
+        </section>
+        <section id="posts">
+            <h2>Publicaciones recientes</h2>
+            {% for post in posts %}
+                <article>
+                    <div>{{ post.contenido_html | safe }}</div>
+                    <hr>
+                    <a href="https://donate.stripe.com/aFa4gr8a43LReAx0p7bbG03"
+                       style="display:inline-block;padding:0.5em 1.5em;background:#0f0;color:#111;font-weight:bold;border:none;border-radius:4px;text-decoration:none;font-size:1.1em;">
+                        💚 Donar
+                    </a>
+                </article>
+            {% endfor %}
+        </section>
     </main>
-    <h1>Bienvenido a mi web</h1>
-    <hr>
-
-<section id="posts">
-    {% for post in posts %}
-        <article>
-            <div>{{ post.contenido_html | safe }}</div>
-            <hr>
-            <a href="https://donate.stripe.com/aFa4gr8a43LReAx0p7bbG03"
-               style="display:inline-block;padding:0.5em 1.5em;background:#0f0;color:#111;font-weight:bold;border:none;border-radius:4px;text-decoration:none;font-size:1.1em;">
-                💚 Donar
-            </a>
-        </article>
-    {% endfor %}
-</section>
-
     <footer>
-        <p>&copy; 2024 Abel Pll</p>
+        <p>&copy; 2024 Abel Pll. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
