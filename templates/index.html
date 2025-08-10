@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Abel Pll</title>
+</head>
+<body>
+    <main>
+    <header>
+        <h1>Abel Pll</h1>
+        <nav>
+            <ul>
+            <li>
+                <a href="{{ url_for('proyectos') }}">Proyectos</a>
+            </li>
+            <li>
+                <a href="{{ url_for('contacto') }}">Contacto</a>
+            </li>
+        </nav>
+    </header>
+    <main>
+        <p>Bienvenido a mi rincón en la web. Soy un desarrollador explorando el mundo de la tecnología.</p>
+    </main>
+    <section>
+        <h1>Bienvenido a mi blog</h1>
+        <iframe src="{{ url_for('mostrar_post', nombre='post1') }}" class="post-frame"></iframe>
+        <iframe src="{{ url_for('mostrar_post', nombre='post2') }}" class="post-frame"></iframe>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Abel Pll</p>
+    </footer>
+</body>
+</html>
