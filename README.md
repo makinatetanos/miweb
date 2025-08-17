@@ -1,12 +1,11 @@
 ## Presentación
 
-Sitio web personal minimalista con estética tipo "terminal": fondo negro y texto verde para una lectura cómoda. El sitio reúne mi actividad en tecnología, con un enfoque simple y directo.
+Sitio web personal minimalista con estética sencilla: fondo negro, texto blanco para una lectura cómoda y enlaces en color verde terminal. El sitio reúne mis proyectos en GitHub y blog python, con un enfoque simple y directo.
 
 ### Secciones
-- **Inicio**: presentación breve y acceso rápido al contenido.
+- **Inicio**: presentación breve y acceso rápido al contenido, así como los posts del blog.
 - **Proyectos**: enlaces a repositorios y trabajos destacados.
-- **Contacto**: formas de encontrarme en redes.
-- **Blog**: publicaciones escritas en Markdown.
+- **Contacto**: formas de encontrarme en redes o contactarme.
 
 ### Tecnologías
 - Flask, Jinja2, Markdown
