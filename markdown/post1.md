@@ -2,7 +2,7 @@
 
 ## Publicado: 10-08-2025
 
-Me complace comunicar que por fin ya tengo desplegada mi web. Aquí 
-os compartiré diferetes publicaciones relacionadas con temas de Ciber Activismo y Critica Social, Consejos y Experiencias desarrollando software, haciendo hacking, y mucho mas.
+Me complace comunicar que por fin ya tengo desplegada mi web. 
+Aquí os compartiré mis experiencias con python, librerías y algunos tutoriales, así como recursos necesarios.
 
 Espero os guste, y en el caso de querer apoyarme podeis hacerlo invitandome a un café ☕
