@@ -9,7 +9,7 @@ Sitio web personal minimalista con estética sencilla: fondo negro, texto blanco
 
 ### Tecnologías
 - Flask, Jinja2, Markdown
-- HTML/CSS con tema oscuro negro/verde
+- HTML/CSS con tema oscuro negro/blanco y links en verde.
 
 ---
 Autor: Abel Pll
