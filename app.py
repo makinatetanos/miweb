@@ -2,67 +2,63 @@
 from flask import Flask, render_template
 import markdown
 import os
-from datetime import datetime
+import glob # Necesitamos glob para encontrar archivos que terminen en .md
 
 app = Flask(__name__)
-
-# Define la carpeta donde guardas tus archivos Markdown
+# Asegúrate de que el directorio 'markdown' exista
 MARKDOWN_DIR = 'markdown'
+if not os.path.exists(MARKDOWN_DIR):
+    os.makedirs(MARKDOWN_DIR)
 
 @app.route('/')
 def inicio():
-    # 1. Obtener la lista de archivos MD
-    posts_files = os.listdir(MARKDOWN_DIR)
+    # 1. Obtener la lista de rutas completas de todos los archivos .md
+    rutas_archivos = glob.glob(os.path.join(MARKDOWN_DIR, '*.md'))
     
-    posts_list = []
-    
-    for filename in posts_files:
-        if filename.endswith('.md'):
-            filepath = os.path.join(MARKDOWN_DIR, filename)
-            
-            # 2. Obtener el timestamp de modificación del archivo
-            # St_mtime es el tiempo de la última modificación (timestamp UNIX)
-            timestamp = os.path.getmtime(filepath)
-            date_modified = datetime.fromtimestamp(timestamp)
-            
-            # 3. Leer el contenido y convertirlo a HTML (o solo un resumen si prefieres)
-            with open(filepath, 'r', encoding='utf-8') as f:
-                content_md = f.read()
-                # Opcional: convertir a HTML aquí si no usas una BD
-                content_html = markdown.markdown(content_md)
+    # 2. Crear una lista de diccionarios, incluyendo la fecha de modificación
+    # os.path.getmtime(ruta) devuelve la fecha de modificación (timestamp numérico)
+    posts_con_fechas = []
+    for ruta in rutas_archivos:
+        with open(ruta, 'r', encoding='utf-8') as f:
+            contenido_md = f.read()
+        
+        # Convertimos el MD a HTML aquí mismo para simplificar la plantilla
+        contenido_html = markdown.markdown(contenido_md)
+        
+        posts_con_fechas.append({
+            'fecha_modificacion': os.path.getmtime(ruta),
+            'contenido_html': contenido_html,
+            'nombre_archivo': os.path.basename(ruta).replace('.md', '')
+        })
 
-            # 4. Crear un diccionario con la información del post
-            posts_list.append({
-                'nombre': os.path.splitext(filename)[0], # Nombre del archivo sin .md
-                'fecha': date_modified,
-                'contenido_html': content_html # El contenido HTML completo para tu index.html
-            })
-
-    # 5. Ordenar la lista de diccionarios por la clave 'fecha' de forma descendente
-    # reverse=True asegura que el más reciente (fecha mayor) vaya primero
-    posts_ordenados = sorted(posts_list, key=lambda post: post['fecha'], reverse=True)
+    # 3. Ordenar la lista por 'fecha_modificacion' de forma descendente (más reciente primero)
+    # reverse=True hace que sea de mayor a menor (más nuevo a más antiguo)
+    posts_ordenados = sorted(posts_con_fechas, key=lambda post: post['fecha_modificacion'], reverse=True)
     
-    # 6. Pasar la lista ordenada a la plantilla index.html
+    # 4. Pasar la lista ordenada a la plantilla
     return render_template('index.html', posts=posts_ordenados)
 
+# ... (El resto de tus rutas: contacto, proyectos, mostrar_post) ...
 @app.route('/contacto')
 def contacto():
+    # ...
     return render_template('contacto.html')
 
 @app.route('/proyectos')
 def proyectos():
+    # ...
     return render_template('proyectos.html')
 
-# Mantienes esta ruta para ver posts individuales con el estilo que definiste
 @app.route('/post/<nombre>')
 def mostrar_post(nombre):
-    ruta_md = os.path.join(MARKDOWN_DIR, f'{nombre}.md')
+    # Esta ruta ya estaba bien para mostrar posts individuales
+    ruta_md = os.path.join('markdown', f'{nombre}.md')
+    # ... (resto de la lógica de mostrar_post) ...
     if not os.path.exists(ruta_md):
         return "Post no encontrado", 404
     with open(ruta_md, 'r', encoding='utf-8') as f:
         contenido_md = f.read()
     contenido_html = markdown.markdown(contenido_md)
-    # Usa tu plantilla index.html para mantener consistencia o la que prefieras
     return render_template_string("""
         <html>
         <head>
@@ -80,7 +76,6 @@ def mostrar_post(nombre):
             </style>
         </head>
         <body>
-            <a href="/">Volver a Inicio</a>
             {{ contenido|safe }}
         </body>
         </html>
