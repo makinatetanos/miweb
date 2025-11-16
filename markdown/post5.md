@@ -18,4 +18,5 @@ estudiando como mejorar librerías, lenguajes, y aportar herramientas para mejor
 Y esa es la función de un desarrollador, poder ayudar a los demás solucionando problemas.
 
 Tal vez en unos meses veais poyectos interesantes en GitHub o incluso colaborar con alguno, ya sea con forks o implicandome de froma directa.
+
 Espero que te haya gustado este post, si es así darte las gracias por tomarte el tiempo de leerme. Si deseas apoyarme pudes hacerme una donación :)
